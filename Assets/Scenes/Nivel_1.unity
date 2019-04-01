@@ -24083,7 +24083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b79024cec87d2419e4a6450ed121e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: {fileID: 2045333823}
+  portal: {fileID: 2045333823}
 --- !u!1 &2045333823
 GameObject:
   m_ObjectHideFlags: 0
