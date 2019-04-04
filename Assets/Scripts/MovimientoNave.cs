@@ -26,7 +26,7 @@ public class MovimientoNave : MonoBehaviour
             float meta = posPortal.x;
             if (posicionNave <= meta)
             {
-                transform.position = transform.position + new Vector3(0.1f, 0, 0);
+                //transform.position = transform.position + new Vector3(0.1f, 0, 0);
             }
             else
             {
@@ -39,7 +39,7 @@ public class MovimientoNave : MonoBehaviour
             float meta = force;
             if (posicionNave < meta)
             {
-                transform.position = transform.position + new Vector3(0.1f, 0, 0);
+                //transform.position = transform.position + new Vector3(0.1f, 0, 0);
             }
                 
         }
