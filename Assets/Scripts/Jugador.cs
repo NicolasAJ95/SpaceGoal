@@ -4,17 +4,17 @@ public class Jugador : MonoBehaviour
 {
     //LevelEvents
     public delegate void LevelEvent();
-    public static event LevelEvent AccionMover;
-    public static event LevelEvent IniciarNivel;
+    public static event LevelEvent MoveAction;
+    public static event LevelEvent StartLevel;
 
     // Start is called before the first frame update
     void Start()
     {
-        IniciarNivel();
+        StartLevel();
     }
 
     private void Mover()
     {
-       AccionMover();
+       MoveAction();
     }
 }

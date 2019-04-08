@@ -5,9 +5,12 @@ public class MovimientoNave : MonoBehaviour
     [SerializeField] GameObject portal;
     [SerializeField] float force;
 
+
+
     private Vector3 posPortal;
 
-    bool pass;
+    [SerializeField]
+    private bool pass;
 
     
 

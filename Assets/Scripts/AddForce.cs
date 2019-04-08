@@ -14,10 +14,16 @@ public class AddForce : MonoBehaviour
     public Vector3 PosActual;
     public Vector3 PosNext;    
     private Renderer Mrenderer;
-   
+
+    //LevelEvents
+    public delegate void LevelEvent();
+    public static event LevelEvent MoveAction;
+    public static event LevelEvent StartLevel;
+
     // Start is called before the first frame update
     void Start()
     {
+        StartLevel();
         player = GameObject.FindWithTag("Ship"); //almacena game object
         Mplayer = player.GetComponent<Transform>(); // Almacena el transform del object
         Mrenderer = player.GetComponent<Renderer>();
@@ -44,13 +50,14 @@ public class AddForce : MonoBehaviour
                 {
 
                     Debug.Log("Mouse is pressed down");
+                    MoveAction();
                     Vector3 DireccionTanque = Mplayer.forward;
                     float SentidoNave = 1f;
                     float MagnitudNave = force;
                     Vector3 FuerzaNave = MagnitudNave * DireccionTanque * SentidoNave;
                     NaveFisicas.AddForce(FuerzaNave);
                     Debug.Log("Personaje");
-                     
+                    
 
                 }
                 else if (hitInfo.collider.gameObject.CompareTag("Cat"))

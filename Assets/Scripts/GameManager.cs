@@ -1,31 +1,50 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
     private int turnCount;
-
+    [SerializeField]
+    private GameObject gameOverUI;
+    [SerializeField]
+    private Text levelScore;
 
     private void OnEnable()
     {
-        Jugador.AccionMover += AddTurn;
-        Jugador.AccionMover += StartLevel;
+        AddForce.MoveAction += AddTurn;
+        AddForce.StartLevel += StartLevel;
     }
 
     private void OnDisable()
     {
-        Jugador.AccionMover -= AddTurn;
-        Jugador.AccionMover -= StartLevel;
+        AddForce.MoveAction -= AddTurn;
+        AddForce.StartLevel -= StartLevel;
     }
 
     private void StartLevel()
     {
         turnCount = 0;
+        levelScore.text = turnCount.ToString();
+        ActivateGameOverUI(false);
+        Time.timeScale = 1;
     }
 
     private void AddTurn()
     {
         turnCount += 1;
+        levelScore.text = turnCount.ToString();
+    }
+
+    public void ActivateGameOverUI(bool _active)
+    {
+        gameOverUI.SetActive(_active);
+    }
+
+    public void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void LoadLevel(string name)
