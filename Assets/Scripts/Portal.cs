@@ -22,7 +22,7 @@ public class Portal : MonoBehaviour
 
     void OnCollisionStay(Collision collisionInfo)
     {
-        if(collisionInfo.gameObject.name == "SpaceShip")
+        if(collisionInfo.gameObject.tag == "Ship")
         {
             collisionInfo.gameObject.transform.position = portalGoal.transform.position;
             Debug.Log("Teleport");
