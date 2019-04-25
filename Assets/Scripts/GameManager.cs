@@ -51,6 +51,12 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(name);
     }
+
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     #region Singleton
 
     // Implementacion del Singleton 
