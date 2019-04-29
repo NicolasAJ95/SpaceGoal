@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject gameOverUI;
     [SerializeField]
+    private GameObject levelOverUI;
+    [SerializeField]
     private Text levelScore;
 
     private void OnEnable()
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
         turnCount = 0;
         levelScore.text = turnCount.ToString();
         ActivateGameOverUI(false);
+        ActivateLevelOverUI(false);
         Time.timeScale = 1;
     }
 
@@ -40,6 +43,10 @@ public class GameManager : MonoBehaviour
     public void ActivateGameOverUI(bool _active)
     {
         gameOverUI.SetActive(_active);
+    }
+    public void ActivateLevelOverUI(bool _active)
+    {
+        levelOverUI.SetActive(_active);
     }
 
     public void ReloadLevel()
