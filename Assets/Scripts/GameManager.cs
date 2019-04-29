@@ -7,11 +7,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int turnCount;
     [SerializeField]
+    private float movesLimit;
+    [SerializeField]
     private GameObject gameOverUI;
     [SerializeField]
     private GameObject levelOverUI;
     [SerializeField]
     private Text levelScore;
+
 
     private void OnEnable()
     {
@@ -62,6 +65,27 @@ public class GameManager : MonoBehaviour
     public void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public int CalculateLevelStars()
+    {
+        if (turnCount <= movesLimit / 3)
+        {
+            Debug.Log("3 stars");
+            return 3;
+            
+        }
+        else if (turnCount <= movesLimit / 2)
+        {
+            Debug.Log("2 stars");
+            return 2;
+
+        }
+        else
+        {
+            Debug.Log("1 star");
+            return 1;
+        }       
     }
 
     #region Singleton

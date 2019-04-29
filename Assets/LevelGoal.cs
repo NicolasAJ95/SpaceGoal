@@ -8,5 +8,8 @@ public class LevelGoal : MonoBehaviour
     {
         Time.timeScale = 0;
         GameManager.Instance.ActivateLevelOverUI(true);
+        GameManager.Instance.CalculateLevelStars();
     }
+
+
 }

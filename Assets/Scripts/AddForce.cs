@@ -74,12 +74,12 @@ public class AddForce : MonoBehaviour
         float sentidoY = Input.GetAxis("Horizontal");
         if (sentidoY != 0)
         {
-        Debug.Log(sentidoY);
+       // Debug.Log(sentidoY);
         Vector3 direccionY = new Vector3(0, 1, 0);        
         Vector3 velocidadAngular = MagnitudAngular * direccionY * sentidoY;
         Vector3 desplazamientoAngular = velocidadAngular * Time.deltaTime;       
-        Debug.Log(desplazamientoAngular);
-        Debug.Log(velocidadAngular);
+       // Debug.Log(desplazamientoAngular);
+      //  Debug.Log(velocidadAngular);
         Mplayer.eulerAngles += desplazamientoAngular;        
         }
     }
