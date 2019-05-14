@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4632558868310846538}
   - component: {fileID: 4632558868310846539}
   - component: {fileID: 4632558868310846536}
+  - component: {fileID: 1690969183}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Ship
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4632558868310846537}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -55, y: 22.04, z: -1}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 8058606871434123180}
   - {fileID: 4632558869017969258}
@@ -78,11 +79,24 @@ MeshCollider:
   m_GameObject: {fileID: 4632558868310846537}
   m_Material: {fileID: 13400000, guid: a533d818e59f56e418aaf77048404d27, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: 01929575ea549144baacc998b7e27ae9, type: 3}
+--- !u!65 &1690969183
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4632558868310846537}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20.141386, y: 6.911316, z: 32.3393}
+  m_Center: {x: -0.000005722046, y: 0.7037277, z: -2.1581078}
 --- !u!1 &4632558868714408631
 GameObject:
   m_ObjectHideFlags: 0
@@ -14213,7 +14227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4632558869729800822}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -4.0645585, y: 43.07, z: 19.82001}
+  m_LocalPosition: {x: -5, y: 75, z: 20}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 4632558868310846533}
@@ -14282,12 +14296,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 1500
-  MagnitudAngular: 15
-  player: {fileID: 0}
-  Mplayer: {fileID: 0}
-  NaveFisicas: {fileID: 0}
+  MagnitudAngular: 50
+  player: {fileID: 4632558868310846537}
+  Mplayer: {fileID: 4632558868310846533}
+  NaveFisicas: {fileID: 4632558868310846538}
   PosActual: {x: 0, y: 0, z: 0}
   PosNext: {x: 0, y: 0, z: 0}
+  power: 0
+  minPower: 0
+  maxPower: 5
+  powerSlider: {fileID: 0}
+  FuerzaDeEmpueje: {fileID: 0}
 --- !u!1 &8052905917691814848
 GameObject:
   m_ObjectHideFlags: 0
