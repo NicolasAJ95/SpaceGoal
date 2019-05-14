@@ -7,7 +7,7 @@ public class AddForce : MonoBehaviour
 
 {
     [SerializeField] float force;
-    [SerializeField] float MagnitudAngular;
+    [SerializeField] float MagnitudAngular = 50f;
     public Ray ClickMetter;
     public GameObject player;
     public Transform Mplayer;
@@ -46,21 +46,19 @@ public class AddForce : MonoBehaviour
         FuerzaDeEmpueje.text = power.ToString();
         powerSlider.value = power;
         ObjectToThrow();
-        Rotar();
+        
         if (ShipReady)
         {
             powerSlider.gameObject.SetActive(true);
+            power += 500 * Time.deltaTime;
+            Rotar();
 
         }
         else
         {
-            powerSlider.gameObject.SetActive(false);
-
+            powerSlider.gameObject.SetActive(false);            
         }
-        if (ShipReady)
-        {
-            power += 200 * Time.deltaTime;
-        }
+        
     }
     void ObjectToThrow()
     {
@@ -89,14 +87,16 @@ public class AddForce : MonoBehaviour
     }
     public void Rotar()
     {
-        float sentidoY = Input.GetAxis("Horizontal");
-        if (sentidoY != 0)
-        {       
+        float sentidoY = Input.GetAxis("Horizontal");        
         Vector3 direccionY = new Vector3(0, 1, 0);        
         Vector3 velocidadAngular = MagnitudAngular * direccionY * sentidoY;
         Vector3 desplazamientoAngular = velocidadAngular * Time.deltaTime;     
-        Mplayer.eulerAngles += desplazamientoAngular;        
+        Mplayer.eulerAngles += desplazamientoAngular;  
+        if (sentidoY != 0)
+        {
+
         }
+        
     }
    
 }
