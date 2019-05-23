@@ -11,3 +11,4 @@ public class Shredder : MonoBehaviour
         GameManager.Instance.ActivateGameOverUI(true);
     }
 }
+

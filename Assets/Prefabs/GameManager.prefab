@@ -44,5 +44,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnCount: 0
+  movesLimit: 11
   gameOverUI: {fileID: 0}
+  levelOverUI: {fileID: 0}
   levelScore: {fileID: 0}
+  levelStarsIndicator: {fileID: 0}
+  levelStars:
+  - {fileID: 21300014, guid: b0136a3040f75d7468e12b46feed1729, type: 3}
+  - {fileID: 21300010, guid: b0136a3040f75d7468e12b46feed1729, type: 3}
+  - {fileID: 21300012, guid: b0136a3040f75d7468e12b46feed1729, type: 3}

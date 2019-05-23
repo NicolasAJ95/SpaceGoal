@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
     private GameObject levelOverUI;
     [SerializeField]
     private Text levelScore;
+    [SerializeField]
+    private Image levelStarsIndicator;
+    [SerializeField]
+    private Sprite[] levelStars;
 
 
     private void OnEnable()
@@ -30,11 +34,12 @@ public class GameManager : MonoBehaviour
 
     private void StartLevel()
     {
+        Time.timeScale = 1;
         turnCount = 0;
         levelScore.text = turnCount.ToString();
         ActivateGameOverUI(false);
         ActivateLevelOverUI(false);
-        Time.timeScale = 1;
+
     }
 
     private void AddTurn()
@@ -71,18 +76,21 @@ public class GameManager : MonoBehaviour
     {
         if (turnCount <= movesLimit / 3)
         {
+            levelStarsIndicator.sprite = levelStars[2];
             Debug.Log("3 stars");
             return 3;
             
         }
         else if (turnCount <= movesLimit / 2)
         {
+            levelStarsIndicator.sprite = levelStars[1];
             Debug.Log("2 stars");
             return 2;
 
         }
         else
         {
+            levelStarsIndicator.sprite = levelStars[0];
             Debug.Log("1 star");
             return 1;
         }       

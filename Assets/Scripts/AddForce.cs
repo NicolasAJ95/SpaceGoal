@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class AddForce : MonoBehaviour
 
 {
@@ -46,7 +47,22 @@ public class AddForce : MonoBehaviour
         FuerzaDeEmpueje.text = power.ToString();
         powerSlider.value = power;
         ObjectToThrow();
-        
+
+        //
+        if(isRotatingRight){
+            Vector3 direccionY = new Vector3(0, 1, 0);        
+            Vector3 velocidadAngular = MagnitudAngular * direccionY * 1;
+            Vector3 desplazamientoAngular = velocidadAngular * Time.deltaTime;     
+            Mplayer.eulerAngles += desplazamientoAngular;   
+        }
+
+        if(isRotatingLeft){
+            Vector3 direccionY = new Vector3(0, 1, 0);        
+            Vector3 velocidadAngular = MagnitudAngular * direccionY * -1;
+            Vector3 desplazamientoAngular = velocidadAngular * Time.deltaTime;     
+            Mplayer.eulerAngles += desplazamientoAngular;   
+        }
+
         if (ShipReady)
         {
             powerSlider.gameObject.SetActive(true);
@@ -62,14 +78,15 @@ public class AddForce : MonoBehaviour
     }
     void ObjectToThrow()
     {
-        if (Input.GetMouseButtonDown(0))  
+         if (Input.GetMouseButtonDown(0))  
         {
-            ShipReady = true;            
+                        
             RaycastHit hitInfo = new RaycastHit();
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo))
             {           
                 if (hitInfo.collider.gameObject.CompareTag("Ship"))
-                {                                          
+                {     
+                    ShipReady = true;                                     
                     MoveAction();                    
                 }           
             }
@@ -85,18 +102,48 @@ public class AddForce : MonoBehaviour
             power = 0;
         }
     }
-    public void Rotar()
-    {
-        float sentidoY = Input.GetAxis("Horizontal");        
+
+    public void Rotar(){
+        float sentidoY = Input.GetAxis("Horizontal");
         Vector3 direccionY = new Vector3(0, 1, 0);        
         Vector3 velocidadAngular = MagnitudAngular * direccionY * sentidoY;
         Vector3 desplazamientoAngular = velocidadAngular * Time.deltaTime;     
         Mplayer.eulerAngles += desplazamientoAngular;  
-        if (sentidoY != 0)
-        {
+    }
 
+    private bool isRotatingRight;
+    private bool isRotatingLeft;
+    public void RotarDerecha()
+    {
+           
+        if(ShipReady){
+            isRotatingRight = true;
+            isRotatingLeft = false;
         }
+        
+
+    }
+
+    public void RotarIzquierda()
+    {
+
+        if(ShipReady){
+            isRotatingRight = false;
+            isRotatingLeft = true;
+        }
+    }
+
+    public void StopRotating()
+    {
+
+        if(ShipReady){
+            isRotatingRight = false;
+            isRotatingLeft = false;
+        }
+
+        
+    }
+        
         
     }
    
-}
